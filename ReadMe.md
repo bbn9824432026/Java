@@ -247,3 +247,18 @@ A **member variable** (or **instance variable**) in Java is a variable defined i
 - **Access Modifiers**: Can be `public`, `private`, etc.
 - **Static Variables**: Shared across all instances.
 - **Initialization**: Can be done at declaration or in constructors.
+
+
+### Access Modifiers for Member Variables
+
+- **`public`**: Accessible from anywhere.
+- **`protected`**: Accessible within the package and by subclasses.
+- **`private`**: Accessible only within the class.
+- **Default (Package-Private)**: Accessible within the same package.
+
+### Specifiers for Member Variables
+
+- **`static`**: Shared among all instances.
+- **`final`**: Value cannot be changed once initialized.
+- **`transient`**: Excluded from serialization.
+- **`volatile`**: Ensures visibility across threads.
