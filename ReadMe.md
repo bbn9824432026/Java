@@ -237,3 +237,13 @@ In Java, when it comes to the `main` method, certain aspects are mandatory for i
 
 **Optional Points**:
 - Overloading `main`, using the `final` keyword for `args`, handling exceptions, calling `main` from other methods, and using `System.exit()` are not mandatory but can be used based on the specific needs and practices of the application.
+
+
+A **member variable** (or **instance variable**) in Java is a variable defined inside a class but outside any method, constructor, or block. It represents the state of an object. Key points:
+
+- **Defined in a Class**: Outside methods and constructors.
+- **Instance-Specific**: Each object has its own copy.
+- **Default Values**: Automatically initialized (e.g., `0`, `false`, `null`).
+- **Access Modifiers**: Can be `public`, `private`, etc.
+- **Static Variables**: Shared across all instances.
+- **Initialization**: Can be done at declaration or in constructors.
