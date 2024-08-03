@@ -325,3 +325,154 @@ Here are the key points about static variables in Java:
 9. **Cannot Access Non-Static Members**:
    - Static variables and methods cannot directly access instance variables or methods.
 
+### Key Points about Java Methods
+
+1. **Method Declaration Syntax**:
+   - Methods are declared with the following syntax:
+     ```java
+     accessModifier returnType methodName(parameters) {
+         // method body
+     }
+     ```
+
+2. **Modifiers**:
+   - Methods may have access modifiers (`public`, `protected`, `private`) and special modifiers (`static`, `final`, `abstract`, `synchronized`, etc.).
+
+3. **Keywords**:
+   - **`public`**, **`protected`**, **`private`**: Access levels.
+   - **`static`**: Belongs to the class, not instances.
+   - **`final`**: Cannot be overridden.
+   - **`abstract`**: Must be implemented by subclasses.
+   - **`synchronized`**: For thread safety.
+
+4. **Return Type**:
+   - Specifies the type of value the method returns. Use `void` if no value is returned.
+
+5. **Throws Clause**:
+   - Lists checked exceptions that the method might throw.
+     ```java
+     void method() throws IOException, SQLException {
+         // method body
+     }
+     ```
+
+6. **Exception Handling**:
+   - Methods can declare super exceptions, which are broader exceptions that cover multiple specific exceptions.
+
+7. **Method Invocation**:
+   - Methods are invoked using the method name followed by parentheses.
+     ```java
+     methodName(arguments);
+     ```
+
+8. **Unique Method Signatures**:
+   - A class cannot have two methods with the same signature (name and parameter types). Overloading is allowed as long as the parameter list is different.
+
+9. **Returning `null`**:
+   - You can return `null` from a method with an object reference return type.
+     ```java
+     String getString() {
+         return null;
+     }
+     ```
+
+10. **Primitive Return Types**:
+    - You can return any value or variable that can be implicitly converted to the declared primitive return type.
+      ```java
+      int getInt() {
+          return 10; // valid, int is a primitive type
+      }
+      ```
+
+11. **Explicit Casting**:
+    - You can return any value or variable that can be explicitly cast to the declared return type.
+      ```java
+      double getDouble() {
+          return (double) 10; // explicit cast
+      }
+      ```
+
+12. **Void Return Type**:
+    - Methods with a `void` return type should not return any value.
+      ```java
+      void printMessage() {
+          System.out.println("Hello"); // valid
+          // return; // also valid, but no value
+      }
+      ```
+
+### Key Points about Variable Scope
+
+1. **Variable Scope**:
+   - Defines where a variable can be accessed or modified in the code. It determines the lifespan and visibility of a variable.
+
+2. **Instance Variables in Static Context**:
+   - Instance variables cannot be accessed directly from a `static` context (e.g., static methods) because static contexts do not have access to instance-specific data. They must be accessed through an object instance.
+     ```java
+     public class Example {
+         int instanceVar; // Instance variable
+
+         static void staticMethod() {
+             // System.out.println(instanceVar); // Error: Cannot access instance variable
+         }
+
+         void instanceMethod() {
+             System.out.println(instanceVar); // Valid
+         }
+     }
+     ```
+
+3. **Local Variables in Nested Methods**:
+   - Local variables are scoped to the method or block where they are declared. They cannot be accessed from nested methods or blocks outside their own scope.
+     ```java
+     void outerMethod() {
+         int localVar = 10;
+
+         void innerMethod() {
+             // System.out.println(localVar); // Error: Cannot access localVar
+         }
+     }
+     ```
+
+4. **Block Variables**:
+   - Variables declared within a block (e.g., loops, conditionals) are local to that block and cannot be accessed outside of it.
+     ```java
+     void method() {
+         if (true) {
+             int blockVar = 5;
+             System.out.println(blockVar); // Valid
+         }
+         // System.out.println(blockVar); // Error: Cannot access blockVar
+     }
+     ```
+
+5. **Primitive and Object Type Instance Variables**:
+   - Instance variables can be of primitive types (e.g., `int`, `double`) or object types (e.g., `String`, `MyObject`). Their scope is the entire class.
+     ```java
+     public class Example {
+         int primitiveVar;       // Primitive type instance variable
+         String objectVar;       // Object type instance variable
+     }
+     ```
+
+6. **Initialization Blocks**:
+   - Initialization blocks (static and instance) are used to initialize instance variables and static variables. They execute when an instance is created or when the class is loaded, respectively.
+     ```java
+     public class Example {
+         static {
+             // Static initialization block
+             System.out.println("Static block");
+         }
+
+         {
+             // Instance initialization block
+             System.out.println("Instance block");
+         }
+
+         Example() {
+             System.out.println("Constructor");
+         }
+     }
+     ```
+
+These points cover the scope and visibility rules for variables in Java, including how different types of variables are accessed and managed within various contexts.
